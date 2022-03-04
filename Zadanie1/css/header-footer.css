@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+h1{
+    font-size: 2.5rem;
+    background-color: #741188;
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+    margin-bottom: 3rem;
+}
+
+h6{
+    position: absolute;
+    bottom: 0;
+    background-color: #741188;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+}

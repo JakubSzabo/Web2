@@ -1,0 +1,40 @@
+table {
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px black;
+    margin: auto;
+}
+
+th, td{
+    border: 2px solid black;
+    text-align: center;
+    padding: 0.3rem;
+}
+
+th{
+    background-color: #741188;
+    color: white;
+}th:hover{
+    cursor: pointer;
+}
+
+td{
+   background-color: #ebebeb;
+}
+
+td a{
+    text-decoration: none;
+    color: #741188;
+    font-weight: 600;
+}td a:hover{
+    color: #ae3fc4;
+}
+
+.arrow-up{
+    clip-path: polygon(100% 50%, 75% 50%, 75% 100%, 25% 100%, 25% 50%, 0 50%, 50% 0);
+    background-color: #fff;
+    width: 20px;
+}
+
+#active{
+    color: #f7bbff;
+}

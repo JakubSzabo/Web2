@@ -1,0 +1,15 @@
+#back{
+    text-decoration: none;
+    background-color: #50095e;
+    padding: 0.6rem 1.7rem;
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+    color: white;
+    margin-left: 2rem;
+}#back:hover{
+    background-color: #741188;
+}
+
+.backDiv{
+    display: block;
+    margin-bottom: 3rem;
+}
