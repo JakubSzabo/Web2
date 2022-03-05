@@ -1,0 +1,51 @@
+form{
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 0.3rem;
+}
+
+label{
+    font-size: 1.3rem;
+}
+
+input{
+    margin: 0.5rem;
+}
+
+#file{
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+}
+
+#file::file-selector-button,
+#submit{
+    background-color: #50095e;
+    padding: 0.6rem;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+}#file::file-selector-button:hover,
+#submit:hover{
+    background-color: #741188;
+    cursor: pointer;
+}
+
+#submit{
+    width: 100%;
+}
+
+
+
+@media (min-width: 550px) {
+    form{
+        width: 500px;
+    }
+    
+    #submit{
+        width: auto;
+    }
+}
+
