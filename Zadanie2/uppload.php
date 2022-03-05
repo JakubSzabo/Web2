@@ -34,9 +34,15 @@
                         echo "<pre>";
                         var_dump($csv[$row]);
                         echo "</pre>";
-                        echo "<br>-------------------------------------------------------<br> ";
 
                         $sql = 'SELECT id, name FROM term';
+                        $statement = $conn->query($sql);
+                        $terms = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                        echo "<pre>";
+                        var_dump($terms);
+                        echo "</pre>";
+                        echo "<br>-------------------------------------------------------<br> ";
 
                         $row++;
                     }
