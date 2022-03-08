@@ -1,4 +1,16 @@
 <?php
+    
+    require_once("config.php");
+
+        try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //echo "Connection successfully";
+    } catch(PDOException $e){
+        echo "Connection failed: " . $e->getMessage();
+    }
+
+
     // $target_dir = "uploads/";
     // $target_file = $target_dir . basename($_FILES["csv"]["name"]);
     // $uploadOk = 1;
@@ -35,9 +47,17 @@
                         var_dump($csv[$row]);
                         echo "</pre>";
 
-                        $sql = 'SELECT id, name FROM term';
-                        $statement = $conn->query($sql);
-                        $terms = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        $sql = 'SELECT id, name FROM term WHERE id=?';
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute([$csv[$row]['en_pojem']]);
+                        //$statement = $conn->query($sql);
+                        $terms = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+                        if(!(count($terms) > 0)){
+                            $sql = "INSERT INTO term (name) VALUE (?)";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->execute([$csv[$row]['en_pojem']]); 
+                        }
 
                         echo "<pre>";
                         var_dump($terms);
