@@ -18,3 +18,12 @@ th{
 td{
    background-color: #ebebeb;
 }
+
+td a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}td a:hover{
+    color: #741188;
+    text-decoration: underline;
+}
