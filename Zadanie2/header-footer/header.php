@@ -14,11 +14,6 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   //echo "Connected successfully";
 
-  $sql = 'SELECT id, name FROM term';
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-  $terms = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -32,10 +27,11 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/error.css">
     <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/edit.css">
     <title>Document</title>
 </head>
 <body>

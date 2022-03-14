@@ -1,0 +1,135 @@
+#adminForm,
+#editForm,
+#addNew{
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 0.3rem;
+    margin-top: 2rem;
+}
+
+#adminForm label{
+    font-size: 1.3rem;
+}
+
+#adminForm input{
+    margin: 0.5rem;
+}
+
+#adminForm #file{
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+}
+
+#adminForm #file::file-selector-button,
+#submit,
+#closeDelete,
+#addSubmit{
+    background-color: #50095e;
+    padding: 0.6rem;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+}#adminForm #file::file-selector-button:hover,
+#submit:hover,
+#addSubmit:hover,
+#closeDelete:hover{
+    background-color: #741188;
+    cursor: pointer;
+}
+
+#submit, 
+#addSubmit{
+    width: 100%;
+}
+
+
+
+@media (min-width: 550px) {
+    #adminForm {
+        width: 500px;
+    }
+    
+    #submit, 
+    #delete, 
+    #deleteBtn,
+    #closeDelete,
+    #addSubmit{
+        width: auto;
+    }
+}
+
+@media (min-width: 750px){
+    #editForm,
+    #addNew{
+        width: 700px;
+    }
+}
+
+#editForm {
+    text-align: left;
+}
+
+#editForm label,
+#addNew label{
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+#editForm input,
+#editForm textarea,
+#addNew input{
+    padding: 0.3rem;
+    width: 100%;
+    margin: 0.2rem 0 0.4rem 0;
+}
+
+#delete, #deleteBtn{
+    background-color: #7a1c1c;
+    padding: 0.6rem;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+}
+#delete:hover, #deleteBtn:hover{
+    background-color: #c22929;
+    cursor: pointer;
+}
+
+#delete, #deleteBtn{
+    width: 100%;
+}
+
+#confirm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+#confirm h3{
+    margin-bottom: 0.5rem;
+    color: #741188;
+    font-size: 1.3rem;
+}
+
+#backGround{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+#addSubmit{
+    margin-top: 0.3rem;
+}

@@ -4,6 +4,7 @@
 
         <script src="js/check.js"></script>
         <script src="js/error.js"></script>
+        <script src="js/confirm.js"></script>
     </footer>
 </body>
 </html>
