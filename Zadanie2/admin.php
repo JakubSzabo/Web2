@@ -1,6 +1,6 @@
 <?php include "header-footer/header.php" ?>
 
-    
+    <?php include "table.php" ?>
 
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <label for="csv">CSV File:</label>

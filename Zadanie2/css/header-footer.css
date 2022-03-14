@@ -15,12 +15,14 @@ h1{
 }
 
 h6{
-    position: absolute;
-    bottom: 0;
     background-color: #741188;
     color: white;
     font-size: 1.5rem;
     width: 100%;
     text-align: center;
     padding: 0.5rem;
+}
+
+#main{
+    min-height: 75.6vh;
 }
