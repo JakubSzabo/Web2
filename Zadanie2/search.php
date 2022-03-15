@@ -3,9 +3,6 @@
 <?php
 
 if($_POST['searchValue'] != null){
-    // echo $_POST['searchValue'];
-    // echo $_POST['otherLanguage'];
-    // echo $_POST['fullText'];
 
     if($_POST['otherLanguage'] == 'otherLanguage' && $_POST['fullText'] == ""){
         $search = $_POST['searchValue'] . "%";
@@ -17,10 +14,6 @@ if($_POST['searchValue'] != null){
 
         include 'searchTableLanguage.php';
 
-        echo "<pre>";
-        var_dump($terms);
-        echo "</pre>";
-
     }
 
     else if($_POST['fullText'] == 'fullText'){
@@ -31,9 +24,7 @@ if($_POST['searchValue'] != null){
         $stmt->execute([$search]);
         $terms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        echo "<pre>";
-        var_dump($terms);
-        echo "</pre>";
+        include 'searchTableLanguage.php';
     }
 
     else{
@@ -48,7 +39,6 @@ if($_POST['searchValue'] != null){
         
     }
 
-    
 }
 
 ?>

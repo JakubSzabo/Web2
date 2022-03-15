@@ -25,10 +25,17 @@ td a{
     text-decoration: underline;
 }
 
-.description{
+.description, .otherDescription, .otherTerm{
     visibility: hidden;
 }
 
 .click:hover{
     cursor: pointer;
+}
+
+h4{
+    font-size: 4rem;
+    color: gray;
+    margin-left: 2rem;
+
 }

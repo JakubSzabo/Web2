@@ -21,40 +21,23 @@ try {
 
 <?php
 
-// $target_dir = "uploads/";
-// $target_file = $target_dir . basename($_FILES["csv"]["name"]);
-// $uploadOk = 1;
-// $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-$csv = array();
-
-// Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-  
-    // $tmpName = $_FILES['csv']['tmp_name'];
-    // $csvAsArray = array_map('str_getcsv', file($tmpName));
-
-
-    // check there are no errors
+    $csv = array();
     if ($_FILES['csv']['error'] == 0){
         $name = $_FILES['csv']['name'];
         $ext = strtolower(end(explode('.', $_FILES['csv']['name'])));
         $type = $_FILES['csv']['type'];
         $tmpName = $_FILES['csv']['tmp_name'];
 
-        // check the file is a csv
         if($ext === 'csv'){
             if(($handle = fopen($tmpName, 'r')) !== FALSE) {
-                // necessary if a large csv file
                 set_time_limit(0);
 
                 $row = 0;
 
                 while(($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
-                    // number of fields in the csv
                     $col_count = count($data);
 
-                    // get the values from the csv
                     $csv[$row]['en_pojem'] = $data[0];
                     $csv[$row]['en_vysvetlenie'] = $data[1];
                     $csv[$row]['sk_pojem'] = $data[2];
@@ -65,9 +48,9 @@ if(isset($_POST["submit"])) {
                     $stmt->execute([$data[0]]);
                     $terms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    //echo '<pre>';
-                    //var_dump($terms);
-                    //echo '</pre>';
+                    // echo '<pre>';
+                    // var_dump($terms);
+                    // echo '</pre>';
 
                     if(!(count($terms) > 0)){
                         $sql = "INSERT INTO term (name) VALUES (?)";
@@ -98,7 +81,7 @@ if(isset($_POST["submit"])) {
 
                     $row++;
 
-                    //echo '<hr>';
+                    echo '<hr>';
                 }
                 fclose($handle);
             }
