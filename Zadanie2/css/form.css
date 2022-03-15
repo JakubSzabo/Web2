@@ -1,6 +1,7 @@
 #adminForm,
 #editForm,
-#addNew{
+#addNew,
+#search{
     width: 100%;
     margin: auto;
     padding: 1rem;
@@ -10,7 +11,8 @@
     margin-top: 2rem;
 }
 
-#adminForm label{
+#adminForm label,
+#search label{
     font-size: 1.3rem;
 }
 
@@ -18,7 +20,7 @@
     margin: 0.5rem;
 }
 
-#adminForm #file{
+#adminForm, #file, #search{
     border-radius: 0.3rem;
     padding: 0.4rem;
 }
@@ -26,7 +28,8 @@
 #adminForm #file::file-selector-button,
 #submit,
 #closeDelete,
-#addSubmit{
+#addSubmit,
+#searchSubmit{
     background-color: #50095e;
     padding: 0.6rem;
     border-radius: 5rem;
@@ -35,7 +38,8 @@
 }#adminForm #file::file-selector-button:hover,
 #submit:hover,
 #addSubmit:hover,
-#closeDelete:hover{
+#closeDelete:hover,
+#searchSubmit:hover{
     background-color: #741188;
     cursor: pointer;
 }
@@ -48,7 +52,8 @@
 
 
 @media (min-width: 550px) {
-    #adminForm {
+    #adminForm,
+    #search {
         width: 500px;
     }
     
@@ -132,4 +137,8 @@
 
 #addSubmit{
     margin-top: 0.3rem;
+}
+
+#searchValue{
+    padding: 0.3rem;
 }

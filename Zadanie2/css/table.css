@@ -2,6 +2,7 @@ table {
     border-collapse: collapse;
     box-shadow: 0 2px 8px black;
     margin: auto;
+    background-color: #ebebeb
 }
 
 th, td{
@@ -15,10 +16,6 @@ th{
     color: white;
 }
 
-td{
-   background-color: #ebebeb;
-}
-
 td a{
     text-decoration: none;
     color: black;
@@ -26,4 +23,12 @@ td a{
 }td a:hover{
     color: #741188;
     text-decoration: underline;
+}
+
+.description{
+    visibility: hidden;
+}
+
+.click:hover{
+    cursor: pointer;
 }
