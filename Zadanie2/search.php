@@ -1,5 +1,5 @@
 <?php include "header-footer/header.php" ?>
-
+<a id="back" href="index.php"> Back </a>
 <?php
 
 if($_POST['searchValue'] != null){
