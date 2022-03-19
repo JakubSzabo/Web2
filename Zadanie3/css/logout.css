@@ -1,0 +1,16 @@
+.log{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}.log:hover{
+    color: #741188;
+    text-decoration: underline;
+}
+
+#msg{
+    text-align: center;
+}
+
+h4{
+    font-size: 2rem;
+}

@@ -2,7 +2,14 @@
 
     <form action="register.php" method="post" enctype="multipart/form-data">        
         <div>
-            <label for="userName">User name: *</label><br>
+            <?php 
+            
+            if($_GET['user'] == 1){
+                echo '<h3 id="userTaken">Username is taken<h3>';
+            }
+            
+            ?>
+            <label for="userName">Username: *</label><br>
             <input type="text" name="userName" required><br>
             
             <label for="name">Email: *</label><br>

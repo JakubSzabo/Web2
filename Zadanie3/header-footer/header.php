@@ -1,7 +1,7 @@
 <?php
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set("display_startup_errors", 1);
+// error_reporting(E_ALL);
 ?>
 
 <?php
@@ -30,6 +30,9 @@ try {
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/error.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/table.css">
     <title>Zadanie 3</title>
 </head>
 <body>

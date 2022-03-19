@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <form action="login.php" method="post" enctype="multipart/form-data">        
-    <label for="userName">User name:</label><br>
+    <label for="userName">Username:</label><br>
     <input type="text" name="userName" required><br>
         
     <label for="name">Password:</label><br>

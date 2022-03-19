@@ -8,8 +8,13 @@ if(!(isset($_SESSION['username']) && !empty($_SESSION['username']))){
 }
 
 ?>
+<div id="msg">
+    <h4>You have logged in successfully.</h4> 
+    <h4>Hi <?php echo $_SESSION['username']; ?></h4>
+    
+    <a class='log' href='info.php'>Login info</a><br>
 
-Vitaj <?php echo $_SESSION['username']; ?>
-<a href="logout.php">Logout</a>
+    <br><a class="log" href="logout.php">Logout</a>
+</div>
 
 <?php include 'header-footer/footer.php' ?>

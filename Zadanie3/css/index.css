@@ -1,0 +1,17 @@
+#userTaken{
+    color: red;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+#back{
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+    text-decoration: none;
+    background-color: #50095e;
+    color: white;
+    display: inline-block;
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0.8rem;
+}#back:hover{
+    background-color: #741188;
+}

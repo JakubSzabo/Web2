@@ -25,11 +25,19 @@ try {
   $name = $_POST["name"];
   $surname = $_POST["surname"];
 
-  $sql = "INSERT INTO user (username, password, email, name, surname) VALUES (?, ?, ?, ?, ?)";
-  $stmt = $conn ->prepare($sql);
-  $result = $stmt->execute([$userName, $psw_hash, $email, $name, $surname]);
+  $sql = 'SELECT username FROM user WHERE username=?';
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$userName]);
+  $userChack = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  header("Location: login.php")
+  if($userChack == null){
+    $sql = "INSERT INTO user (username, password, email, name, surname) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn ->prepare($sql);
+    $result = $stmt->execute([$userName, $psw_hash, $email, $name, $surname]);
 
+    header("Location: login.php");
+  }else{
+    header("Location: index.php?user=1");
+  }
 ?>
 
