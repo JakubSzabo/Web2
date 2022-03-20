@@ -31,11 +31,32 @@ try {
   $userChack = $stmt->fetch(PDO::FETCH_ASSOC);
 
   if($userChack == null){
-    $sql = "INSERT INTO user (username, password, email, name, surname) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn ->prepare($sql);
-    $result = $stmt->execute([$userName, $psw_hash, $email, $name, $surname]);
 
-    header("Location: login.php");
+    include 'header-footer/header.php';
+
+    require_once 'PHPGangsta/GoogleAuthenticator.php';
+    
+    $websiteTitle = 'MyWebsite';
+    
+    $ga = new PHPGangsta_GoogleAuthenticator();
+    
+    $secret = $ga->createSecret();
+    echo 'Secret is: '.$secret.'<br />';
+    
+    $qrCodeUrl = $ga->getQRCodeGoogleUrl($websiteTitle, $secret);
+    echo 'Google Charts URL QR-Code:<br /><img src="'.$qrCodeUrl.'" />';
+
+    ?>
+
+    <a href="login.php">Login</a>
+    
+    <?php
+    include 'header-footer/footer.php';
+
+
+    $sql = "INSERT INTO user (username, password, email, name, surname, app) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conn ->prepare($sql);
+    $result = $stmt->execute([$userName, $psw_hash, $email, $name, $surname, $secret]);
   }else{
     header("Location: index.php?user=1");
   }

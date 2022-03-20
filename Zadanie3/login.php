@@ -3,6 +3,7 @@
 <?php 
 
 session_start();
+require_once 'PHPGangsta/GoogleAuthenticator.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "SELECT * FROM user Where username=?";
@@ -14,13 +15,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($user){
         if(password_verify($_POST['password'], $user['password'])){
-            $_SESSION['username'] = $user['username'];
+            
+            $secret = $user['app'];
 
-            $sql = "INSERT INTO loginlog (user_id, type, time_stamp) VALUES (?, ?, ?)";
-            $stmt = $conn ->prepare($sql);
-            $result = $stmt->execute([$user['id'], 'register', date("Y-m-d H:i:s")]);
-
-            header("Location: loged.php");
+            $ga = new PHPGangsta_GoogleAuthenticator();
+            $result = $ga->verifyCode($secret, $_POST["code"]);
+            
+            if($result == 1){
+                $_SESSION['username'] = $user['username'];
+    
+                $sql = "INSERT INTO loginlog (user_id, type, time_stamp) VALUES (?, ?, ?)";
+                $stmt = $conn ->prepare($sql);
+                $result = $stmt->execute([$user['id'], 'register', date("Y-m-d H:i:s")]);
+    
+                header("Location: loged.php");
+            }
         }
     }
 }
@@ -30,11 +39,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <form action="login.php" method="post" enctype="multipart/form-data">        
     <label for="userName">Username:</label><br>
     <input type="text" name="userName" required><br>
+
+    <label for="userName">Code:</label><br>
+    <input type="text" name="code" required><br>
         
     <label for="name">Password:</label><br>
     <input type="password" name="password" id="password" required><br>
     
     <input type="submit" value="Login" id="submit">
+    <a href="loginEmail.php"><i class="fab fa-google"></i></a>
     <br><a href="index.php">Sign Up</a>
 </form>
 
