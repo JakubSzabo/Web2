@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <input type="password" name="password" id="password" required><br>
     
     <input type="submit" value="Login" id="submit">
-    <a href="loginEmail.php"><i class="fab fa-google"></i></a>
+    <a href="googel.php"><i class="fab fa-google"></i></a>
     <br><a href="index.php">Sign Up</a>
 </form>
 
