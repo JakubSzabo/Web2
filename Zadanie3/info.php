@@ -1,7 +1,5 @@
 <?php include 'header-footer/header.php' ?>
 
-<a id="back" href="loged.php">Back</a>
-
 <?php
 
 session_start();
@@ -16,6 +14,13 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$userId['id']]);
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$userID = $_SESSION['id_user'];
+
+$sql = 'SELECT * FROM loginlog_google WHERE user_id=?';
+$stmt = $conn->prepare($sql);
+$stmt->execute([$userID]);
+$usersGoogle = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <table>
@@ -23,11 +28,20 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <th>Type</th><th>Log Time</th>
     </tr>
     <?php
-    foreach($users as $user){
-        echo "<tr>";
-        echo "<td>$user[type]</td>";
-        echo "<td>$user[time_stamp]</td>";
-        echo "</tr>";
+    if(!empty($userID)){
+        foreach($usersGoogle as $user){
+            echo "<tr>";
+            echo "<td>$user[type]</td>";
+            echo "<td>$user[time_stamp]</td>";
+            echo "</tr>";
+        }
+    }else{
+        foreach($users as $user){
+            echo "<tr>";
+            echo "<td>$user[type]</td>";
+            echo "<td>$user[time_stamp]</td>";
+            echo "</tr>";
+        }
     }
     ?>
 </table>
@@ -38,7 +52,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->execute();
     $register = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT * FROM loginlog WHERE type='google'";
+    $sql = "SELECT * FROM loginlog_google WHERE type='google'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $google = $stmt->fetchAll(PDO::FETCH_ASSOC);
