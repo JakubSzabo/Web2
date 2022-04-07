@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <title>Zadanie 5</title>
+  </head>
+  <body>
+    <header>
+      <div id="background">
+        <form>
+          <label for="name">Meno:</label><br>
+          <input name="name" type="text"><br>
+          
+          <label for="lastName">Priezvisko:</label><br>
+          <input name="lastName" type="text"><br>
+  
+          <label for="bornPlace">Miesto narodanie:</label><br>
+          <input name="bornPlace" type="text"><br>
+          
+          <label for="bornDate">Datum narodenia:</label><br>
+          <input name="bornDate" type="text"><br>
+          
+          <label for="deathPlace">Miesto smerti:</label><br>
+          <input name="deathPlace" type="text"><br>
+
+          <label for="deathDate">Datum smrti:</label><br>
+          <input name="deathDate" type="text"><br>
+          
+          <label for="invention">Vynalez:</label><br>
+          <input name="invention" type="text"><br>
+        </form>
+        
+      </div>
+      <h1>Zadanie 5</h1>
+    </header>
+    <main id="main">
+      <!-- button to get all -->
+      <div class="Div">
+        <button onclick="getAll()">Vsetci vynalezci</button>
+      </div>
+      <!-- get all table -->
+      <div class="Div">
+        <table id="getAll">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Meno</th>
+              <th>Priezvisko</th>
+              <th>Fotka</th>
+              <th>Miesto narodenia</th>
+              <th>Datum narodenia</th>
+              <th>Miesto smrti</th>
+              <th>Datum smrti</th>
+              <th>Vynalezy</th>
+              <th>Edit/Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tBody"></tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      <script src="js/get.js"></script>
+      <script src="js/post.js"></script>
+      <script src="js/delete.js"></script>
+      <h6>Jakub Szabo 2022&copy;</h6>
+    </footer>
+  </body>
+</html>
